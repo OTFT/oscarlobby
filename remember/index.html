@@ -1,0 +1,95 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <button onclick="window.location.href = '../'">Back</button><br>
+        <p>Enter Date:</p>
+        <p>DD : MM : YYYY</p>
+        <select id="day" name="day"></select>
+        <select id="month" name="month">
+            <option value="1">Jan</option>
+            <option value="2">Feb</option>
+            <option value="3">Mar</option>
+            <option value="4">Apr</option>
+            <option value="5">May</option>
+            <option value="6">Jun</option>
+            <option value="7">Jul</option>
+            <option value="8">Aug</option>
+            <option value="9">Sept</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+        </select>
+        <select id="year" name="year"></select><br>
+        <button>Enter</button>
+    </body>
+    <script>
+    const months = document.getElementById("month");
+    const days = document.getElementById("day");
+    const years = document.getElementById("year");
+
+
+    for (let i = 2008; i <= 2024; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.text = i;
+        years.appendChild(option);
+    }
+
+    function updateDropdown2() {
+      const curValue = parseInt(months.value); // Get value from Dropdown 1
+      const yearValue = parseInt(years.value);
+
+      // Clear current options
+      days.innerHTML = "";
+
+      // Add new options
+      if (curValue == 1 || curValue == 3 || curValue == 5 || curValue == 7 || curValue == 8 || curValue == 10 || curValue == 12) //Jan, Mar, May, Jul, Aug, Oct, Dec
+      {
+        for (let i = 1; i <= 31; i++) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.text = i;
+            days.appendChild(option);
+        }
+      }
+
+      if (curValue == 4 || curValue == 6 || curValue == 9 || curValue == 11) //Apr, Jun, Sept, Nov
+      {
+        for (let i = 1; i <= 30; i++) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.text = i;
+            days.appendChild(option);
+        }
+      }
+
+      if (curValue == 2 && yearValue % 4 != 0) //February (No Leap Year)
+      {
+        for (let i = 1; i <= 28; i++) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.text = i;
+            days.appendChild(option);
+        }
+      }
+
+      if (curValue == 2 && yearValue % 4 == 0) //February (Leap Year)
+      {
+        for (let i = 1; i <= 29; i++) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.text = i;
+            days.appendChild(option);
+        }
+      }
+    }
+
+    // Initial population
+    updateDropdown2();
+
+    // Update on change
+    months.addEventListener("change", updateDropdown2);
+    years.addEventListener("change", updateDropdown2);
+    </script>
+</html>
