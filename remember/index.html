@@ -1,27 +1,79 @@
 <html>
     <head>
     </head>
+    <style>
+        body {
+        padding:0;
+        margin:0;
+        width:100%;
+        height: 100vh;
+        background-image: url("../SITEBG.jpg");
+        background-size: cover;
+        background-repeat: repeat-y;
+        background-position: center;
+        background-color: rgba(0,0,0,0.6);
+        }
+
+        .page-content {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          flex-direction: column;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        .back-button {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        }
+
+        button {
+        font-family: DisposableDroid;
+        font-size:70px;
+        background-color:#499ae1;
+        }
+        p {
+        color:white;
+        font-family: DisposableDroid;
+        font-size:50px;
+        }
+        select {
+        font-family: DisposableDroid;
+        font-size:25px;
+        }
+        @font-face {
+        font-family: DisposableDroid;
+        src: url("../DisposableDroidBB.ttf") format("opentype");
+        }
+    </style>
     <body>
-        <button onclick="window.location.href = '../'">Back</button><br>
-        <p>Enter Date:</p>
-        <p>DD : MM : YYYY</p>
-        <select id="day" name="day"></select>
-        <select id="month" name="month">
-            <option value="1">Jan</option>
-            <option value="2">Feb</option>
-            <option value="3">Mar</option>
-            <option value="4">Apr</option>
-            <option value="5">May</option>
-            <option value="6">Jun</option>
-            <option value="7">Jul</option>
-            <option value="8">Aug</option>
-            <option value="9">Sept</option>
-            <option value="10">Oct</option>
-            <option value="11">Nov</option>
-            <option value="12">Dec</option>
-        </select>
-        <select id="year" name="year"></select><br>
-        <button>Enter</button>
+        <button class="back-button" onclick="window.location.href = '../'">Back</button>
+        <center class="page-content">
+          <p>Enter Date:</p>
+          <div><p>DD : MM : YYYY</p>
+          <select id="day" name="day"></select>
+          <select id="month" name="month">
+              <option value="1">Jan</option>
+              <option value="2">Feb</option>
+              <option value="3">Mar</option>
+              <option value="4">Apr</option>
+              <option value="5">May</option>
+              <option value="6">Jun</option>
+              <option value="7">Jul</option>
+              <option value="8">Aug</option>
+              <option value="9">Sept</option>
+              <option value="10">Oct</option>
+              <option value="11">Nov</option>
+              <option value="12">Dec</option>
+          </select>
+          <select id="year" name="year"></select></div><br>
+          <button onclick="window.location.href = '../loading/'">Enter</button>
+        </center>
     </body>
     <script>
     const months = document.getElementById("month");

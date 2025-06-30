@@ -11,7 +11,7 @@
         align-items: center;
         position: relative;
         height: 100vh;
-        background-image: url("SITEBG.jpg");
+        background-image: url("../SITEBG.jpg");
         background-size: cover;
         background-repeat: repeat-y;
         background-position: center;
@@ -23,12 +23,6 @@
         background-color:#499ae1;
         }
 
-        .top-left {
-        position: absolute;
-        top: 300px;
-        left: 300px;
-        }
-
         .center {
         position: absolute;
         top: 50%;
@@ -36,26 +30,38 @@
         transform: translate(-50%, -50%);
         }
 
-        .bottom-right {
-        position: absolute;
-        bottom: 300px;
-        right: 300px;
+        p {
+        color:white;
+        font-family: DisposableDroid;
+        font-size:50px;
         }
+
         @font-face {
         font-family: DisposableDroid;
-        src: url("DisposableDroidBB.ttf") format("opentype");
+        src: url("../DisposableDroidBB.ttf") format("opentype");
         }
+
+        .rotating-image {
+      width: 120px;
+      height: 120px;
+      animation: rotate 1s linear infinite;
+    }
+
+    /* Keyframes for rotation */
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+            transform: rotate(360deg);
+        }
+    }
     </style>
     <body>
         <center>
-            <div class="top-left" style="display:flex;column-gap:30px;">
-                <button onclick="window.location.href = 'remember/'">Remember</button>
-            </div>
-            <div class="center" style="display:flex;column-gap:30px;">
-                <button onclick="window.location.href = 'loading/'">Go To Lobby</button>
-            </div>
-            <div class="bottom-right" style="display:flex;column-gap:30px;">
-                <button onclick="window.location.href = 'loading/'">Help</button>
+            <div class="center" style="display:flex;column-gap:30px;flex-direction: column;align-content: center;justify-content: center;align-items: center;">
+                <p>Loading...</p>
+                <img src="../loadingcursor.png" alt="Rotating Image" class="rotating-image">
             </div>
         </center>
     </body>
